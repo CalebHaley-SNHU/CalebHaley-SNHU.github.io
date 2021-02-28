@@ -1,1 +1,1 @@
-# CalebHaley-SNHU.gitbub.io
+# CalebHaley-SNHU.github.io
