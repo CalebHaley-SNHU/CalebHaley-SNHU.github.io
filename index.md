@@ -1,6 +1,10 @@
 # Welcome to Caleb Haley's GitHub Page
 On this page, I will be demonstrating some of my skills developed over the course of my at SNHU in three formats: Software Design and Engineering, Algorithms and Data Structure, and Databases.  I will be taking older assignments and enhancing them in some way or another each week.  Ultimately, my goal is for each narrative to work with each other to build a well functioning system.
 
+## Code Review
+A YouTube link of my code review is below, the video was far too large for the GitHub limit and it would need to be broken down into 32 different files.                         
+[Link to Code Review](https://youtu.be/mReK4KC2xbs)
+
 ## Enhancement 1 Narrative: Software Design and Engineering
 For this narrative, I will be taking an assignment that was originally a Zoo monitoring system which would read a text file about the data and give the user a warning if there is an issue with the habitat.  I want to redeign this application to compliment the second narrative. I want to modify this program to read data about wood pellets, which will be saved in a text file.  With this application, I want to see quick information about each brand which will be pulled from multiple text files.  I then want to give the user a warning if inventory on any item is low.
 ```
