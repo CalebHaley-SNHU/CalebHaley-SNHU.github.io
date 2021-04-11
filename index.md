@@ -7,7 +7,8 @@ A YouTube link of my code review is below, the video was far too large for the G
 
 ## Enhancement 1 Narrative: Software Design and Engineering
 For this narrative, I will be taking an assignment that was originally a Zoo monitoring system which would read a text file about the data and give the user a warning if there is an issue with the habitat.  I want to redeign this application to compliment the second narrative. I want to modify this program to read data about wood pellets, which will be saved in a text file.  With this application, I want to see quick information about each brand which will be pulled from multiple text files.  I then want to give the user a warning if inventory on any item is low.
-```
+### Original Program
+``` Java
 import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -157,11 +158,123 @@ public class ZooMonitoringSystem {
     
 }
 ```
+### Updated Program
+``` Python
+# Caleb Haley
+# CS 499 Capstone
+# Southern New Hampshire University
+# pelletReader.py
 
+# This program will read data from a JSON file and output the data for the user to see
+# The user will be able to select what kind of data they will see from the JSON file using a menu
+
+# import json dependency
+import json
+
+# Open the data in file to be read
+with open("pellet.json", "r") as string:
+    data = json.load(string)
+    string.close()
+
+
+# Defines function to print BTU data
+def btu_list(my_dict):
+    # Iterate through dictionary if there are still key, value pairs remaining
+    for k, v in my_dict.items():
+        if isinstance(v, dict):
+
+            print(k + ":")
+            btu_list(v)
+            continue
+        # Finds the brand in JSON file and outputs BTU data
+        print("BTU stands for British Temperature Unit - meaning how hot the pellets get")
+        print("New England BTU:", str(v[0]['New England'][0]['BTU']))
+        print("Okanagan BTU:", str(v[0]['Okanagan'][0]['BTU']))
+        print("Maine BTU:", str(v[0]['Maine'][0]['BTU']))
+        print("Turman BTU:", str(v[0]['Turman'][0]['BTU']))
+        print("Geneva BTU:", str(v[0]['Geneva'][0]['BTU']))
+        print("North Idaho BTU:", str(v[0]['North Idaho'][0]['BTU']))
+        print("Energex BTU:", str(v[0]['Energex'][0]['BTU']))
+
+
+# Defines function to print price data
+def price_list(my_dict):
+    # Iterates as long as key,value pairs are remaining
+    for k, v in my_dict.items():
+        if isinstance(v, dict):
+            print(k + ":")
+            price_list(v)
+            continue
+
+        print("Price per ton in USD")
+        # Finds the brand in JSON and outputs price data
+        print("New England price:", str(v[0]['New England'][0]['Price']))
+        print("Okanagan price:", str(v[0]['Okanagan'][0]['Price']))
+        print("Maine price:", str(v[0]['Maine'][0]['Price']))
+        print("Turman price:", str(v[0]['Turman'][0]['Price']))
+        print("Geneva price:", str(v[0]['Geneva'][0]['Price']))
+        print("North Idaho price:", str(v[0]['North Idaho'][0]['Price']))
+        print("Energex price:", str(v[0]['Energex'][0]['Price']))
+
+
+# Function definition for user menu
+def greeting():
+    print("Welcome to the Wood Pellet Terminal")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("        Select an option:       ")
+    print("1. View Brands")
+    print("2. Pellet Pricing in USD")
+    print("3. Find Heat content in BTU ")
+    print("4. Quit")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
+# Bool to easy end program if user chooses
+programRunning = True
+
+while programRunning:
+
+    # Calls our greeting function that gives user options
+    greeting();
+    user_choice = input("Select your option\n")
+    i = 0
+
+# Test for user input
+    # If user inputs 1, show brands
+    if user_choice == "1":
+        print("Showing Brands...")
+        # Iterates JSON by the first index which is where brand is stored
+        brand = [print(i) for i in data['brands'][0]]
+
+    # If user inputs 2, show prices
+    elif user_choice == "2":
+        print("Printing Price List...")
+        # Call the price_list function to print data
+        price_list(data)
+
+    # If user inputs 3, show BTU (British Temperature Units)
+    elif user_choice == "3":
+        print("Printing BTU List...")
+        # Call the btu_list function to print data
+        btu_list(data)
+
+    # If user chooses 4, the program will stop running
+    elif user_choice == "4":
+        print("Goodbye")
+        # Set our bool to false to close the program
+        programRunning = False
+
+    # If the user inputs anything else, it is invalid
+    else:
+        print("Invalid Input")
+
+```
 
 ## Enhancement 2 Narrative: Algorithms and Data Structure
-For the second narrative, I will be modifying one of the first programs made here at SNHU.  This is a Java program that would ask the user for how much fruit they should order, based on what the user inputs.  I would like modify this to meet a real world application of mine, I would like to predict the amount of wood pellets to order for a retailer given the temperature outside.  We typically sit down with a pen and paper to calculate this, but I believe this application could be modified to remove the need for human calculation and a user could have the data they need in seconds.  This is from IT-145
-```
+For the second narrative, I will be modifying one of the first programs made here at SNHU.  This is a Java program that would ask the user for how much fruit they should order, based on what the user inputs.  I would like modify this to meet a real world application of mine, I would like to predict the amount of wood pellets to order for a retailer given the temperature outside.  We typically sit down with a pen and paper to calculate this, but I believe this application could be modified to remove the need for human calculation and a user could have the data they need in seconds.  This is from IT-145.
+
+### Original Program
+``` Java
 import java.util.Scanner;
 
 public class StockFruit {
@@ -218,6 +331,237 @@ public class StockFruit {
 	}
 }
 ```
+### Updated Program
+``` Java
+package StockFruitRevised;
+
+import java.util.Scanner;
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.Hashtable;
+
+public class StockFruitRevised {
+	
+	// Method definition to print menu of user options
+	public static void printMenu() {
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("What would you like to do?");
+		System.out.println("1. See monthly sales data");
+		System.out.println("2. Calculate Apples needed to order");
+		System.out.println("3. Calculate Oranges needed to order");
+		System.out.println("4. Quit");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	}
+	
+
+	// Main function
+	public static void main(String[] args) {
+		printMenu();
+		// Initialize a dictionary to hold apple sales data
+				Dictionary<String,Integer> appleSales = new Hashtable<String, Integer>();
+				// Input previous sales data into our dictionary
+				
+				appleSales.put("January", 200);
+				appleSales.put("February", 175);
+				appleSales.put("March", 150);
+				appleSales.put("April", 230);
+				appleSales.put("May", 250);
+				appleSales.put("June", 300);
+				appleSales.put("July", 390);
+				appleSales.put("August", 350);
+				appleSales.put("September", 200);
+				appleSales.put("October", 250);
+				appleSales.put("November", 235);
+				appleSales.put("December", 190);
+				
+				// Initialize a dictionary to hold orange sales data
+				Dictionary<String,Integer> orangeSales = new Hashtable<>();
+				// Input previous sales data into our dictionary
+				orangeSales.put("January", 200);
+				orangeSales.put("February", 200);
+				orangeSales.put("March", 200);
+				orangeSales.put("April", 230);
+				orangeSales.put("May", 250);
+				orangeSales.put("June", 230);
+				orangeSales.put("July", 215);
+				orangeSales.put("August", 200);
+				orangeSales.put("September", 200);
+				orangeSales.put("October", 200);
+				orangeSales.put("November", 235);
+				orangeSales.put("December", 190);
+			
+		
+		// Variable Declarations
+		
+		boolean programRunning = true;
+
+		Scanner scnr = new Scanner(System.in);
+		int userInput = scnr.nextInt(); // Holds user choice
+		
+		if (programRunning = true) {
+			switch(userInput) {
+			case 1:
+				System.out.println("Entering Sales History...");
+				// Ask the user what data they want to see
+				System.out.println("Would you like to see Average Apple sales or Average Orange sales?");
+				System.out.println("1. Apples");
+				System.out.println("2. Oranges");
+		
+				int userInput1 = scnr.nextInt();
+				switch(userInput1) {
+				// Case 1 outputs apple sales
+				case 1:
+					// Enumerate keys and elements
+					Enumeration<String> e = appleSales.keys();
+					// Keep running if there are more elements
+					while(e.hasMoreElements()) {
+						String key = e.nextElement();
+						// Output key and element
+						System.out.println(key + " - " + appleSales.get(key) + " apples");
+					}
+					break;
+				// Case 2 outputs orange sales
+				case 2:
+					// Enumerate keys and elements
+					Enumeration<String> i = orangeSales.keys();
+					// Keep running if there are more elements
+					while(i.hasMoreElements()) {
+						String key = i.nextElement();
+						// Output key and element
+						System.out.println(key + " - " + orangeSales.get(key) + " oranges");
+					}
+					break;
+				default:
+					// Anything else is invalid
+					System.out.println("Invalid Input");
+				}
+				break;
+				
+			case 2:	// Apples needed to order
+				System.out.println("Please type the month by number (January is 1, February is 2, etc.)");
+				int userMonthApple = scnr.nextInt();
+				String userMonth = null;
+				System.out.println("How many apples are on hand?");
+				int userCountApple = scnr.nextInt();
+				int applesNeeded = 0;
+				switch(userMonthApple) {
+				// We assign the user input to a string so we can query the dictionary
+				case 1:
+					userMonth = "January";
+					break;
+				case 2:
+					userMonth = "February";
+					break;
+				case 3:
+					userMonth = "March";
+					break;
+				case 4:
+					userMonth = "April";
+					break;
+				case 5:
+					userMonth = "May";
+					break;
+				case 6:
+					userMonth = "June";
+					break;
+				case 7:
+					userMonth = "July";
+					break;
+				case 8:
+					userMonth = "August";
+					break;
+				case 9:
+					userMonth = "September";
+					break;
+				case 10:
+					userMonth = "October";
+					break;
+				case 11:
+					userMonth = "November";
+					break;
+				case 12:
+					userMonth = "December";
+					break;
+				}
+				
+				applesNeeded = (appleSales.get(userMonth));
+				applesNeeded = applesNeeded - userCountApple;
+				System.out.println("Oranges needed to order based on last years sales: " + applesNeeded);
+		
+				break;
+				
+			case 3:	// Oranges needed to order
+				System.out.println("Please type the month by number (January is 1, February is 2, etc.)");
+				int userMonthOrange = scnr.nextInt();
+				userMonth = null;
+				System.out.println("How many oranges are on hand?");
+				userCountApple = scnr.nextInt();
+				applesNeeded = 0;
+				switch(userMonthOrange) {
+				case 1:
+					userMonth = "January";
+					break;
+				case 2:
+					userMonth = "February";
+					break;
+				case 3:
+					userMonth = "March";
+					break;
+				case 4:
+					userMonth = "April";
+					break;
+				case 5:
+					userMonth = "May";
+					break;
+				case 6:
+					userMonth = "June";
+					break;
+				case 7:
+					userMonth = "July";
+					break;
+				case 8:
+					userMonth = "August";
+					break;
+				case 9:
+					userMonth = "September";
+					break;
+				case 10:
+					userMonth = "October";
+					break;
+				case 11:
+					userMonth = "November";
+					break;
+				case 12:
+					userMonth = "December";
+					break;
+				}
+				
+				applesNeeded = (orangeSales.get(userMonth));
+				applesNeeded = applesNeeded - userCountApple;
+				System.out.println("Oranges needed to order based on last years sales: " + applesNeeded);
+
+				break;
+				
+			case 4:	// Quit
+				// Say Goodbye to the user
+				System.out.println("Closing program...");
+				System.out.println("Goodbye");
+				programRunning = false;
+				break;
+			default:
+				System.out.println("Invalid Input");
+			}
+			
+		}
+		else {
+				System.out.println("Goodbye");
+			}
+
+		scnr.close();
+	}		
+}
+```
+
 
 ## Enhancement 3 Narrative: Databases
 For the third narrative, I would like to implement a database on a Text Message Expander created in CS340.  This program would take string input from the user and match it using if statements and a hard comparisson.  I would like to put a database of different text messages that can be expanded, simplifying the program and adding functionality.
