@@ -6,7 +6,24 @@ A YouTube link of my code review is below, the video was far too large for the G
 [Link to Code Review](https://youtu.be/mReK4KC2xbs)
 
 ## Enhancement 1 Narrative: Software Design and Engineering
-For this narrative, I will be taking an assignment that was originally a Zoo monitoring system which would read a text file about the data and give the user a warning if there is an issue with the habitat.  I want to redeign this application to compliment the second narrative. I want to modify this program to read data about wood pellets, which will be saved in a text file.  With this application, I want to see quick information about each brand which will be pulled from multiple text files.  I then want to give the user a warning if inventory on any item is low.
+
+**A.	Briefly describe the artifact. What is it? When was it created?**
+
+The original program was created in IT-145 and it was a Zoo Monitoring System which was written in Java.  The program would output a menu for the user to select an option on what they wanted to monitor, and the program would read a text file and give the data to the user.  I decided to re-write the program in Python and read JSON files.  I had a JSON file containing some pellet data from work that I repurposed for the program.  This program now outputs a menu for the user to select an option on what they want to monitor, and the program reads a JSON file and gives the data to the user.  The major differences are that rather than spitting out whatever is in the text file, this program finds the data the user is looking for all from within one file.
+
+**B.	Justify the inclusion of the artifact in your ePortfolio. Why did you select this item? What specific components of the artifact showcase your skills and abilities in software development? How was the artifact improved?**
+
+I selected this artifact because I thought it would be a good chance to showcase some of the places I have grown.  I wanted to be able to fine tune what data was coming from the file, something that is commonly done in the field.  We do not always want to retrieve entire files, sometimes we just need bits and pieces.  I enjoy working with data and realize I may be drifting that way professionally, so realistically I want a portfolio that will show my ability to work with data – in other narratives I will be able to work with data a little bit more.  Python is one of the languages used commonly with data analysis so I thought it would be fitting to re-write the application in a language that is naturally well-suited for data analysis. 
+
+**C.	Did you meet the course objectives you planned to meet with this enhancement in Module One? Do you have any updates to your outcome-coverage plans?**
+
+I wanted to achieve CS-409-04 which is to demonstrate an ability to use well-founded and innovative techniques, skills, and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals.  I took a program that was able to do the task at hand, but in practice it would be rarely seen; and changed it into a program that written in a language recognized by the industry as one of the most widely used data languages and showcased my ability to pull specific data from a file.
+
+**D.	Reflect on the process of enhancing and/or modifying the artifact. What did you learn as you were creating it and improving it? What challenges did you face?**
+
+The biggest challenge I usually face is biting off more than I can chew.  I always have big, elaborate plans for my programs and at some point, I must realize that I cannot add it all in.  This program was no exception to the rule.  I wanted to add in more data analysis into the program but realized that it was getting overly complex for a user that would just be running a program via command prompt.  Without going back and creating a GUI, some things would just be too hard to do with the user and I found myself losing track of where I was while testing.  I decided to simplify the program to demonstrate the skills that I was aiming for, which I have completed, now I have a working baseline which I can add functions to.  	
+This was not something I had done with Python before, I had worked with CSV files in previous courses but had never interacted with a JSON with Python.  This whole program was a learning experience, but it was the learning experience I was aiming for.  I know that Python is used in data science commonly so it would be something that I may need to know in the field.  This program helped engrain some of the practices of using lists and dictionaries in Python for me as well.
+
 ### Original Program
 ``` Java
 import java.util.Scanner;
@@ -271,7 +288,23 @@ while programRunning:
 ```
 
 ## Enhancement 2 Narrative: Algorithms and Data Structure
-For the second narrative, I will be modifying one of the first programs made here at SNHU.  This is a Java program that would ask the user for how much fruit they should order, based on what the user inputs.  I would like modify this to meet a real world application of mine, I would like to predict the amount of wood pellets to order for a retailer given the temperature outside.  We typically sit down with a pen and paper to calculate this, but I believe this application could be modified to remove the need for human calculation and a user could have the data they need in seconds.  This is from IT-145.
+
+**A.	Briefly describe the artifact. What is it? When was it created?**
+
+The original program was created in IT-145 and it was a system that would ask the user how many apples and oranges they had, and how many they are required to have, then calculate the difference.  I wanted to make the program easier to use for the end-user so I put data into a hash table which contained previous years sales, then the program would ask the user what they would want to calculate and prompt the user for how many of an item they have, then get the last year’s sales data and compare the two numbers.
+
+**B.	Justify the inclusion of the artifact in your ePortfolio. Why did you select this item? What specific components of the artifact showcase your skills and abilities in software development? How was the artifact improved?**
+
+I selected this artifact because the original was extremely simple and clumsy on the user.  I wanted to show how I can accomplish the same task in different ways with varying levels of program depth.  The initial program was a brute force calculating app, and I was able to turn it into something a little more elegant for the user.  This artifact shows my ability to work with different data structures like hash tables and manipulate the data into solving a problem.  This should demonstrate my ability to design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution, while managing trade-offs involved in design choices (CS-499-03).
+
+**C.	Did you meet the course objectives you planned to meet with this enhancement in Module One? Do you have any updates to your outcome-coverage plans?**
+
+I wanted to achieve the main course objective mainly, however there was a minor goal I was aiming for in this program that I did fall short on.  Initially, I wanted to re-write the program to read data from a text file, this would be the data containing the previous years’ sales data.  Unfortunately, I was unable to pull that off while still receiving accurate results, for some reason it would keep reading December data every few tests.  Instead, I implemented a hash table which shows my ability to work with different data structures, as I had initially aimed this artifact more towards the algorithm side of the narrative.  
+
+**D.	Reflect on the process of enhancing and/or modifying the artifact. What did you learn as you were creating it and improving it? What challenges did you face?**
+
+In previous courses, I have been introduced to the concepts of certain data structures, but I have never had to implement them on a system of my own or work with them outside of a structured assignment.  I was not familiar with hash tables but after doing research it became clear that using one would be my best chance at this program.  It gave me the ability to cast user input into a variable that I could use to search the dictionary and return the value to the program.  One thing I learned is an appreciation for the Java documentation, I was able to look through documentation at different data structures to find the one that would fit my use in this scenario.  It worked perfectly.  Once I finally broke down and started using the documentation, the program started coming together much better than it was before.  I struggled with this program for a week longer than I initially planned, but I think I was able to take a lot from this narrative.  
+
 
 ### Original Program
 ``` Java
@@ -564,8 +597,26 @@ public class StockFruitRevised {
 
 
 ## Enhancement 3 Narrative: Databases
-For the third narrative, I would like to implement a database on a Text Message Expander created in CS340.  This program would take string input from the user and match it using if statements and a hard comparisson.  I would like to put a database of different text messages that can be expanded, simplifying the program and adding functionality.
-```
+Narrative Three: Databases
+
+**A.	Briefly describe the artifact. What is it? When was it created?**
+
+The original artifact comes from CS-340 in the form of a text message expander, this program would take the user input of an abbreviation like “OMG, BRB, or OMW” and expands the message into the full text form of the message.  Originally, the program used a series of if-else statements to find a matching abbreviation, but I thought this would be a good place to implement a database.  I remade the program using Python and SQLite to give the program more complexity and to give it more tools to be successful.  Rather than using if-else statements to find the match, we will create SQL queries and run different queries depending on input.  
+	
+**B.	Justify the inclusion of the artifact in your ePortfolio. Why did you select this item? What specific components of the artifact showcase your skills and abilities in software development? How was the artifact improved?**
+
+I selected this artifact because I thought it would be well suited to implement a database into, a database makes the program run smoother, adds complexity, and gives the user a lot more capability than the original program.  Databases are also easily exploitable, for this reason I designed the program with a security-first mindset in hopes to achieve: build on previous course outcomes as well as demonstrate my security first mindset that anticipates exploitation of my database (CS-499-05). The artifact now uses a database that the user can add additional abbreviations into and remove any old irrelevant abbreviations.  
+	
+**C.	Did you meet the course objectives you planned to meet with this enhancement in Module One? Do you have any updates to your outcome-coverage plans?**
+
+This project has met the planned enhancements laid forth in Module One.  I wanted to implement a system where the user could preform CRUD operations on the data within the program, and implementing a database makes the most sense here.  Initially, I thought I would just make the main program, but I found that I needed to create some additional scripts for creating a new database locally and populating the database with common abbreviations, so those have been created as well.  I want to add some more depth to this program and maybe implement some other operations; ideally, I would like to find an online resource that contains abbreviations in a CSV file and populate the database with that data.  But for now, I have met my initial course objectives planned.
+	
+**D.	Reflect on the process of enhancing and/or modifying the artifact. What did you learn as you were creating it and improving it? What challenges did you face?**
+
+I was never particularly good at working with databases, I think through my whole time at school, one of the only classes that I seriously struggled in was working with databases.  I knew the motions of how to get certain things to work, but I did not understand the full breadth of the information and I learned a lot creating this program.  One speed bump that I hit was taking user input and formatting it in a way that it would go into the database well, I spent a lot of time reading the SQLite documentation and I think it paid off.  The first function I made took me quite some time, the next one came together faster, and from there it was like I had been working with Python and SQLite my whole time here at school.  Once I had a deeper understanding of how SQLite input formatting worked, everything in the program seemed to start to fall in place.  
+
+### Original Program
+``` Java
 import java.util.Scanner;
 
 public class TextMsgExpander {
@@ -623,7 +674,114 @@ public class TextMsgExpander {
     }
 }
 ```
+### New Program
+``` Python
+#!/usr/bin/python
 
+import sqlite3
+
+import cursor as cursor
+import table as table
+
+# This is an external dependency, may need to be installed via command line
+from pip._vendor.distlib.compat import raw_input
+
+# Connects to our database
+conn = sqlite3.connect('test.db')
+
+# Alias to clean up queries
+c = conn.cursor()
+
+# Output to ensure we opened DB correctly
+print("Opened database successfully")
+
+
+# Define a function to get data from DB
+def get_data():     # Defining this as a function will make the queries look much cleaner
+    with conn:
+        c.execute("SELECT * FROM WORDS")
+
+
+programRunning = True
+
+# While there is user input, keep running
+while programRunning:
+    # Print a user Menu
+    print("""
+    1. Add new Abbreviation
+    2. Delete Abbreviation
+    3. Show Abbreviations
+    4. Quit
+    """)
+
+    # Initialize variables to hold inputs
+    ans = raw_input("Make a selection\n")
+    user_input = "input"
+
+    # Input 1 adds abbreviations
+    if ans == "1":
+        abrv = raw_input("What is the abbreviation?")
+        result = c.fetchone()
+        if result:
+            # record already exists
+            print("Record already exists")
+        else:
+            long = raw_input("What is the full phrase of the abbreviation?")
+            # We need to structure the query to translate user inputs
+            query = ('INSERT INTO WORDS (ABRV, Long) '
+                     'VALUES (:ABRV, :Long);')
+            # Add the parameter mask to the query
+            params = {
+                'ABRV': abrv,
+                'Long': long
+            }
+            # Commit changes and close connection
+            conn.commit()
+
+        print("Abbreviation Added")
+
+    # Input 2 deletes abbreviations
+    elif ans == "2":
+        # Prints abbreviations so user can see what is in the DB
+        cursor = conn.execute("SELECT * from WORDS")
+        print(cursor.fetchall())
+        # Ask the user what they want to delete
+        abrv = (raw_input("What abbreviation would you like to delete?:"),)
+        # Ensure we have what the user wants to delete in the DB
+        result = cursor.fetchone()
+
+        # if we find the abbreviation delete it
+        if result:
+            query = ('DELETE from WORDS (ABRV) '
+                     'VALUES (:ABRV);')
+            # Add the parameter mask to the query
+            params = {
+                'ABRV': abrv
+            }
+            # Delete record
+            conn.commit()
+            print("Record deleted")
+        else:
+            # If we don't find a record, then it probably isn't there
+            print("Abbreviation not present in database, try again.")
+
+    # Input 3 prints out the abbreviations
+    elif ans == "3":
+        print("Abbreviation Found")
+        cursor = conn.execute("SELECT * from WORDS")
+        print(cursor.fetchall())
+
+        conn.close()
+    # Input 4 closes program
+    elif ans == "4":
+        print("Goodbye")
+        # Set our boolean to false to close the program
+        programRunning = False
+
+    # Anything else is invalid
+    elif ans != "":
+        print("\n **Not Valid Choice, please try again**")
+```
 ### Page Settings
 You can use the [editor on GitHub](https://github.com/CalebHaley-SNHU/CalebHaley-SNHU.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
